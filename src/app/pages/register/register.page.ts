@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router,private menu: MenuController) { }
 
+  goToPage(page){
+    this.router.navigate([page]);
+  }
   ngOnInit() {
   }
 

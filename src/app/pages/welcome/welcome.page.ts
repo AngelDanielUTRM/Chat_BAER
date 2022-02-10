@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.page.html',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePage implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router,private menu: MenuController) { }
+
+  goToPage(page){
+    this.router.navigate([page])
+  }
 
   ngOnInit() {
   }
