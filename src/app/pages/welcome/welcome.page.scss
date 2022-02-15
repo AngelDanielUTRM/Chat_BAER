@@ -1,5 +1,5 @@
 ion-content {
-  --background: linear-gradient(to bottom, #208590, #1c1d1c);
+  --background: rgb(255, 255, 255);
 }
 
 // ion-toolbar{
@@ -19,7 +19,7 @@ ion-header {
   justify-content: center;
 
   img {
-    width: 45vw;
+    width: 65vw;
   }
 }
 
@@ -83,4 +83,8 @@ ion-icon.facebook {
 }
 i {
   font-style: italic;
+}
+
+.footerWelcomePage{
+  color: rgb(207, 207, 207);
 }
