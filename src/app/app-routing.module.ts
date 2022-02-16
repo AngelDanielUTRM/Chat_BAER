@@ -20,6 +20,14 @@ const routes: Routes = [
   },  {
     path: 'chat',
     loadChildren: () => import('./pages/chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'password-forgotten',
+    loadChildren: () => import('./pages/password-forgotten/password-forgotten.module').then( m => m.PasswordForgottenPageModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule)
   }
 
 

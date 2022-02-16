@@ -1,7 +1,16 @@
 
+ion-toolbar{
+    --padding-top: 1%;
+    --padding-bottom: 1%;
+}
 
-
-
+.titleicon {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align:center;
+}
 .message {
      padding: 8px;
      border-radius: 10px;
