@@ -9,8 +9,12 @@
       <form >
         <ion-list>
           <ion-item>
-            <ion-label class="floating" position="floating">Email Address</ion-label>
-            <ion-input type="email"   name="email"></ion-input>
+            <ion-label class="floating" position="floating" >Email Address</ion-label>
+            <ion-input type="email"   name="email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="floating" position="floating" >Password</ion-label>
+            <ion-input type="password"   name="password" [(ngModel)]="password"></ion-input>
           </ion-item>
           <!-- for displaying the erroe massage -->
           <!-- <div class="error-messages">
@@ -55,7 +59,7 @@
         </ion-col>
         <ion-col col-2>
           <ion-button class="animated zoomInUp delay-1000s" size="default" 
-            shape="round" >
+            shape="round" (click)="SignIn('users')">
             Sign In
           </ion-button>
         </ion-col>
