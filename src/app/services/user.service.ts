@@ -25,7 +25,7 @@ export class UserService {
 
   async userRegister(user){
     try {
-      return await this.httpClient.post(`http://192.168.0.104:8081/api/create-user`,user).toPromise();
+      return await this.httpClient.post(`${this.API_URL}/create-user`,user).toPromise();
     } catch (error) {
       
     }
