@@ -12,6 +12,7 @@ const routes: Routes = [
       }
     ]
   },
+  
   {
     path: '',
     loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)

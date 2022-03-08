@@ -9,26 +9,27 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  constructor(public router:Router,private menu: MenuController,  private userService : UserService ) { }
+  constructor(
+    public router: Router,
+    private menu: MenuController,
+    private userService: UserService
+  ) {}
 
   email = '';
   password = '';
-  goToPage(page){
-    this.router.navigate([page])
+  goToPage(page) {
+    this.router.navigate([page]);
   }
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-
-  async SignIn(page){
-    console.log(this.email, this.password)
-    if (this.email === 'admin' && this.password === '123'){
-      localStorage.setItem(this.userService.JWToken,'token123');
+  async SignIn(page) {
+    
+    if (this.email === 'admino' && this.password === '123') {
+      localStorage.setItem(this.userService.JWToken, 'token123');
+      console.log(this.email, this.password);
       this.router.navigate([page]);
-    }else {
-      console.log("This is the token" + this.email,this.password)
+    } else {
+      console.log('This is the token' + this.email, this.password);
     }
   }
-
 }
