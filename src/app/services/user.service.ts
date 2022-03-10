@@ -33,7 +33,9 @@ export class UserService {
 
   async loginUser(user){
     try {
+      
       return await this.httpClient.post(`${this.API_URL}/login`,user).toPromise();
+     
     } catch (error) {
       return { ok:false, message:error}
     }

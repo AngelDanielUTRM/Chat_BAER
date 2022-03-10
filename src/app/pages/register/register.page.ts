@@ -13,7 +13,7 @@ export class RegisterPage implements OnInit {
     userName : '',
     email : '',
     password :''
-  }
+  };
 
   constructor(public router:Router,private menu: MenuController, public userService: UserService) { }
 

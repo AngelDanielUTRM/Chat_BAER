@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { UserService } from 'src/app/services/user.service';
-import { NgModule } from '@angular/core';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,23 +13,33 @@ export class LoginPage implements OnInit {
     public router: Router,
     private menu: MenuController,
     private userService: UserService
-  ) {}
+  ) { }
 
-  email = '';
-  password = '';
+  user = {
+    userName: '',
+    email: '',
+    password: '',
+  };
+
   goToPage(page) {
     this.router.navigate([page]);
   }
-  ngOnInit() {}
 
-  async SignIn(page) {
-    
-    if (this.email === 'admino' && this.password === '123') {
-      localStorage.setItem(this.userService.JWToken, 'token123');
-      console.log(this.email, this.password);
-      this.router.navigate([page]);
-    } else {
-      console.log('This is the token' + this.email, this.password);
-    }
+  ngOnInit() { }
+
+  async logIn(){
+    await this.userService.loginUser(this.user)
+    console.log(await this.userService.loginUser(this.user))
   }
+
+  //Dunno how to make a token to keep sesion logged async SignIn(page) {
+
+  //   if (this.email === 'admino' && this.password === '123') {
+  //     localStorage.setItem(this.userService.JWToken, 'token123');
+  //     console.log(this.email, this.password);
+  //     this.router.navigate([page]);
+  //   } else {
+  //     console.log('This is the token' + this.email, this.password);
+  //   }
+  // }
 }

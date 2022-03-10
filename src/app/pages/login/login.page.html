@@ -11,7 +11,7 @@
             <ion-input
               type="email"
               name="email"
-              [(ngModel)]="email"
+              [(ngModel)]="user.email"
             ></ion-input>
           </ion-item>
           <ion-item>
@@ -19,7 +19,7 @@
             <ion-input
               type="password"
               name="password"
-              [(ngModel)]="password"
+              [(ngModel)]="user.password"
             ></ion-input>
           </ion-item>
         </ion-list>
@@ -50,9 +50,9 @@
             class="animated zoomInUp delay-1000s"
             size="default"
             shape="round"
-            (click)="SignIn('users')"
+            (click)="logIn()"
           >
-            Sign In
+            Log In
           </ion-button>
         </ion-col>
       </ion-row>
