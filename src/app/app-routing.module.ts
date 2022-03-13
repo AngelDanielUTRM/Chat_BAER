@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { UserGuard } from './guards/user.guard';
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   canActivate: [UserGuard],
+  //   children: [
+  //     {
+  //       path: 'users',
+  //       loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule)
+  //     }
+  //   ]
+  // },
   {
-    path: '',
-    canActivate: [UserGuard],
-    children: [
-      {
-        path: 'users',
-        loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule)
-      }
-    ]
+    path: 'users',
+    loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule)
   },
-  
+
   {
     path: '',
     loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
@@ -37,7 +41,7 @@ const routes: Routes = [
     path: 'password-forgotten',
     loadChildren: () => import('./pages/password-forgotten/password-forgotten.module').then( m => m.PasswordForgottenPageModule)
   },
-  
+
 
 
 ];

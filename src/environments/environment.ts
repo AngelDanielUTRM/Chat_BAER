@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'http://192.168.0.104:8081/api'
+  api: 'http://192.168.0.104:8081/api',
+  apiBack: 'http://192.168.0.104:8081'
 };
 
 /*
