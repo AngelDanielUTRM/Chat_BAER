@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketServiceService } from 'src/app/services/socket-service.service';
 import {ActivatedRoute} from "@angular/router";
+import  {UserService} from "../../services/user.service";
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.page.html',
@@ -9,15 +12,12 @@ import {ActivatedRoute} from "@angular/router";
 export class UsersPage implements OnInit {
 
   public onlineUsers = [];
-  public user: any;
-  constructor(private socketService: SocketServiceService, private  route: ActivatedRoute) { }
+  public userId: any;
+  constructor(private router: Router, private userService: UserService, private socketService: SocketServiceService, private  route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('init tab from users pages');
-    this.user = this.route.snapshot.queryParams;
-    console.log('init tab',this.user);
-
-    console.log('user in tab',this.user.userName);
+    this.userId = this.userService.getId();
+    console.log('user in tab',this.userId);
     this.socketService.getOnlineUsers().subscribe( (users)=>{
 
       if(users){
@@ -25,6 +25,13 @@ export class UsersPage implements OnInit {
         this.onlineUsers = users;
       }
     });
+  }
+
+  async navigateToChat(id,socket,nameChat){
+    this.socketService.userSelectedSocket= socket;
+    this.socketService.userName = nameChat;
+    console.log("Este es el socket ID del usuario seleccionado "+socket)
+    await this.router.navigate(['chat'], {queryParams:{userId:id}});
   }
 
 }

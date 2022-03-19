@@ -34,6 +34,7 @@ export class LoginPage implements OnInit {
       const query: any = await this.userService.loginUser(this.user);
       console.log(query);
       if (query.ok){
+          localStorage.setItem('userId',query.user.id);
 
           this.socketService.login(query.user);
           await this.router.navigate(['/users'],{queryParams:query.user});

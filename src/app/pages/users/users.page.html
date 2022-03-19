@@ -1,7 +1,5 @@
 <ion-header>
   <ion-toolbar color="primary">
-
-
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon   color="light" slot="icon-only" name="person-circle"></ion-icon>
@@ -16,16 +14,20 @@
 </ion-header>
 
 <ion-content>
+
   <ion-card *ngFor="let user of onlineUsers">
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="https://1.bp.blogspot.com/-CEKDMU1SQtc/XxprEKv4-8I/AAAAAAAAefM/7R9Kd9_bwRcVnMxmEKNXNDPgve6LZVwwQCLcBGAsYHQ/s640/meme%2Bgato%2Bllorando%2B17.jpg">
-      </ion-avatar>
-      <ion-label>
-        <h2 text-capitalize>{{user.userName}}</h2>
-        <p>Online</p>
-      </ion-label>
-      <ion-badge color="primary">88</ion-badge>
-    </ion-item>
+   <div *ngIf="user.id != userId">
+     <ion-item (click)="navigateToChat(user.id,user.socket_id,user.userName)">
+       <ion-avatar slot="start">
+         <img src="https://1.bp.blogspot.com/-CEKDMU1SQtc/XxprEKv4-8I/AAAAAAAAefM/7R9Kd9_bwRcVnMxmEKNXNDPgve6LZVwwQCLcBGAsYHQ/s640/meme%2Bgato%2Bllorando%2B17.jpg">
+       </ion-avatar>
+       <ion-label>
+         <h2 text-capitalize>{{user.userName}}</h2>
+         <p>Online</p>
+       </ion-label>
+       <ion-badge color="primary">88</ion-badge>
+     </ion-item>
+   </div>
   </ion-card>
+
 </ion-content>
