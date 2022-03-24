@@ -35,7 +35,7 @@
           <ion-col size="9" class="message other-message" *ngIf="item.user_id != myUserId else meText">
             <b>El</b><br />
             <span>{{item.msg}}</span>
-            <div class="time" text-right><br />sadasdsadsa 15 febrero</div>
+            <div class="time" text-right><br />{{item.created_at}}</div>
           </ion-col>
 
 
